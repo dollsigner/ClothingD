@@ -11,7 +11,7 @@
  Target Server Version : 80019
  File Encoding         : 65001
 
- Date: 18/03/2024 17:28:27
+ Date: 18/03/2024 21:06:34
 */
 
 SET NAMES utf8mb4;
@@ -32,8 +32,19 @@ CREATE TABLE `bargin`  (
 ) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
--- Records of bargin
+-- Table structure for champion
 -- ----------------------------
+DROP TABLE IF EXISTS `champion`;
+CREATE TABLE `champion`  (
+  `record_id` int NOT NULL AUTO_INCREMENT,
+  `user_id` int NOT NULL,
+  `user_role` int NOT NULL,
+  `user_deal_num` bigint NULL DEFAULT NULL,
+  `user_like_num` bigint NULL DEFAULT NULL,
+  `champion_type` int NULL DEFAULT NULL,
+  `time` datetime NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`record_id`) USING BTREE
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Table structure for like
@@ -52,10 +63,6 @@ CREATE TABLE `like`  (
 ) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
--- Records of like
--- ----------------------------
-
--- ----------------------------
 -- Table structure for message
 -- ----------------------------
 DROP TABLE IF EXISTS `message`;
@@ -71,10 +78,6 @@ CREATE TABLE `message`  (
 ) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
--- Records of message
--- ----------------------------
-
--- ----------------------------
 -- Table structure for rank
 -- ----------------------------
 DROP TABLE IF EXISTS `rank`;
@@ -84,12 +87,9 @@ CREATE TABLE `rank`  (
   `user_role` int NOT NULL,
   `user_deal_num` bigint(20) UNSIGNED ZEROFILL NOT NULL,
   `user_likes_num` bigint(20) UNSIGNED ZEROFILL NOT NULL,
+  `time` datetime NOT NULL ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`rank_record_id`) USING BTREE
 ) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
-
--- ----------------------------
--- Records of rank
--- ----------------------------
 
 -- ----------------------------
 -- Table structure for report
@@ -107,10 +107,6 @@ CREATE TABLE `report`  (
 ) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
--- Records of report
--- ----------------------------
-
--- ----------------------------
 -- Table structure for user
 -- ----------------------------
 DROP TABLE IF EXISTS `user`;
@@ -124,10 +120,6 @@ CREATE TABLE `user`  (
 ) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
--- Records of user
--- ----------------------------
-
--- ----------------------------
 -- Table structure for work
 -- ----------------------------
 DROP TABLE IF EXISTS `work`;
@@ -139,14 +131,11 @@ CREATE TABLE `work`  (
   `work_img` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
   `work_likes` int(10) UNSIGNED ZEROFILL NULL DEFAULT NULL,
   `work_status` int NULL DEFAULT NULL,
+  `work_price` decimal(10, 2) NULL DEFAULT NULL,
   `user_id` int NOT NULL,
   `user_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
   `user_role` int NOT NULL,
   PRIMARY KEY (`work_id`) USING BTREE
 ) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
-
--- ----------------------------
--- Records of work
--- ----------------------------
 
 SET FOREIGN_KEY_CHECKS = 1;

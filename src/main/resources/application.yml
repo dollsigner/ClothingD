@@ -1,0 +1,8 @@
+spring:
+  application:
+    name: "xiaopu"
+  datasource:
+    username: root
+    password: 159357528
+    url: jdbc:mysql://localhost:3306/clothingD
+    driver-class-name: com.mysql.cj.jdbc.Driver

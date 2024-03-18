@@ -92,9 +92,9 @@ eg：
 
 #### 1.5.1 简介
 
-![image-20240318202951378](C:\Users\86132\AppData\Roaming\Typora\typora-user-images\image-20240318202951378.png)
+![image-20240318212821563](C:\Users\86132\AppData\Roaming\Typora\typora-user-images\image-20240318212821563.png)
 
-![image-20240318203051398](C:\Users\86132\AppData\Roaming\Typora\typora-user-images\image-20240318203051398.png)
+#### ![image-20240318203051398](C:\Users\86132\AppData\Roaming\Typora\typora-user-images\image-20240318203051398.png)
 
 **存放议价消息相关数据**
 
@@ -102,10 +102,14 @@ eg：
 
 - bragin_id 议价消息唯一标识
 - bargin_price 议价价格
+- bargin_status 议价状态 0 1 2 分别代表 未响应 已接受 已拒绝
 - from_user_id 议价来源用户id
 - from_user_name 议价来源用户名
 - to_user_id 议价目的用户id
 - to_user_name 议价目的用户名
+- work_id 议价的作品id
+- work_title 议价的作品标题
+- work_introduction 议价的作品简介
 
 ### 1.6 rank表
 
@@ -162,3 +166,76 @@ eg：
 - user_likes_num 该冠军收到的赞数
 - champion_type   0 1 分别代表 成交冠军 点赞冠军
 - time 时间戳，插入数据时候更新
+
+## 2. 接口设计
+
+### 2.1 主页相关接口
+
+#### 2.1.1 登录接口
+
+#### 2.1.2 获取用户详细信息接口
+
+(user表)
+
+#### 2.1.3 更新用户简介接口
+
+(user_introduction)
+
+#### 2.1.4 获取设计师成交排行接口
+
+(rank表)
+
+#### 2.1.5 获取管理员处理记录接口
+
+(report表)
+
+#### 2.1.6 获取普通用户发布作品接口
+
+(work表 user_id)
+
+#### 2.1.7 获取普通用户感兴趣作品接口
+
+(like表 from_user_id)
+
+#### 2.1.8 获取普通用户已购买作品接口
+
+(bargin表 from_user_id  bargin_status)
+
+#### 2.1.9 获取设计师用户待售商品
+
+(work 表 user_id work_status)
+
+#### 2.1.9 获取设计师用户已售商品
+
+(work 表 user_id work_status)
+
+### 2.2 消息相关接口
+
+#### 2.2.1 获取点赞列表
+
+(like 表 to_user_id)
+
+#### 2.2.2 获取议价列表
+
+(bargin 表 to_user_id from_user_id)
+
+#### 2.2.3 获取留言列表
+
+(message 表 to_user_id)
+
+### 2.3社区相关接口
+
+#### 2.3.1 获取作品列表
+
+#### 2.3.2 根据作品id获取作品详细数据
+
+#### 2.3.3 发布新作品
+
+#### 2.3.4 点赞接口
+
+#### 2.3.5 举报接口
+
+#### 2.3.6 议价接口
+
+#### 2.3.7 私聊接口
+

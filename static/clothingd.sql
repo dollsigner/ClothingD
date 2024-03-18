@@ -11,7 +11,7 @@
  Target Server Version : 80019
  File Encoding         : 65001
 
- Date: 18/03/2024 21:06:34
+ Date: 18/03/2024 21:52:18
 */
 
 SET NAMES utf8mb4;
@@ -24,10 +24,14 @@ DROP TABLE IF EXISTS `bargin`;
 CREATE TABLE `bargin`  (
   `bargin_id` int NOT NULL AUTO_INCREMENT,
   `bargin_price` decimal(10, 2) NULL DEFAULT NULL,
+  `bargin_status` int(10) UNSIGNED ZEROFILL NOT NULL,
   `from_user_id` int NOT NULL,
   `from_user_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
   `to_user_id` int NOT NULL,
   `to_user_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `work_id` int NOT NULL,
+  `work_title` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
+  `work_introduction` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
   PRIMARY KEY (`bargin_id`) USING BTREE
 ) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
 

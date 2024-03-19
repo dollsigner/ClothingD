@@ -25,7 +25,7 @@ eg：
 
 #### 1.2.1 简介
 
-![image-20240318202044605](C:\Users\86132\AppData\Roaming\Typora\typora-user-images\image-20240318202044605.png)
+![image-20240319200119455](C:\Users\86132\AppData\Roaming\Typora\typora-user-images\image-20240319200119455.png)
 
 **work表用于存储作品相关信息**
 
@@ -38,7 +38,7 @@ eg：
 - work_introduction: varchar, 作品简介
 - work_catagory: int值，指代作品类型，0,1,2 分别代表 旧衣求改造、作品售卖、灵感求实现
 - work_img: varchar, 作品图片
-- work_likes: int, 作品点赞数
+- work_likes_num: int, 作品点赞数
 - work_status: int值, 作品状态,  0 1 分别代表 未成交 已成交
 - work_price: numeric, 作品价格
 - user_id: 发布用户id
@@ -223,13 +223,21 @@ eg：
 
 (message 表 to_user_id)
 
-### 2.3社区相关接口
+#### 2.2.4 回复接口
 
-#### 2.3.1 获取作品列表
+#### 2.2.5 接受/拒绝议价接口
+
+#### 2.2.6 支付接口
+
+
+
+### 2.3 社区相关接口
+
+#### 2.3.1 获取所有作品列表
 
 #### 2.3.2 根据作品id获取作品详细数据
 
-#### 2.3.3 发布新作品
+#### 2.3.3 发布新作品接口
 
 #### 2.3.4 点赞接口
 

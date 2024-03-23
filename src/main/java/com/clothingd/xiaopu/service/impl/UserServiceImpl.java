@@ -1,4 +1,4 @@
-package com.clothingd.xiaopu.service;
+package com.clothingd.xiaopu.service.impl;
 
 import com.clothingd.xiaopu.Dao.UserDao;
 import com.clothingd.xiaopu.pojo.User;
@@ -7,7 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class UserService {
+public class UserServiceImpl
+{
     @Autowired
     UserDao userDao;
 

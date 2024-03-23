@@ -10,7 +10,8 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @TableName(value = "user")
-public class UserPojo {
+public class User
+{
     @TableId(value = "user_id", type = IdType.AUTO)
     private Integer userId;
 
@@ -26,13 +27,13 @@ public class UserPojo {
     @TableField(value = "user_introduction")
     private String userIntroduction;
 
-    public UserPojo(Integer userId, Integer userRole, String username, String userAvatar, String userIntroduction) {
+    public User(Integer userId,Integer userRole,String username,String userAvatar,
+          String userIntroduction)
+    {
         this.userId = userId;
         this.userRole = userRole;
         this.username = username;
         this.userAvatar = userAvatar;
         this.userIntroduction = userIntroduction;
     }
-
-
 }

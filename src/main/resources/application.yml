@@ -3,6 +3,6 @@ spring:
     name: "xiaopu"
   datasource:
     username: root
-    password: 159357528
+    password: ZGyop46823
     url: jdbc:mysql://localhost:3306/clothingD
     driver-class-name: com.mysql.cj.jdbc.Driver

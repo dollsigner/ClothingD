@@ -12,7 +12,7 @@ public class UserServiceImpl
     @Autowired
     UserDao userDao;
 
-    public void addUser(Integer userId, Integer userRole, String username, String userAvatar, String userIntroduction) {
-        userDao.insert(new User(userId,userRole,username,userAvatar,userIntroduction));
+    public void addUser(Integer userId, Integer userRole, String userName, String userAvatar, String userIntroduction) {
+        userDao.insert(new User(userId,userRole,userName,userAvatar,userIntroduction));
     }
 }

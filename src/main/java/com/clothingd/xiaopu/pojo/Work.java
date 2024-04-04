@@ -1,7 +1,6 @@
 package com.clothingd.xiaopu.pojo;
 
 import org.hibernate.validator.constraints.URL;
-import org.jetbrains.annotations.NotNull;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
@@ -12,7 +11,9 @@ import com.clothingd.xiaopu.anno.WorkCategory;
 import com.clothingd.xiaopu.anno.WorkStatus;
 
 import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
+import jakarta.validation.groups.Default;
 import lombok.Data;
 
 
@@ -22,7 +23,7 @@ import lombok.Data;
 public class Work
 {
 	@TableId(value = "work_id",type = IdType.AUTO)
-	@NotNull
+	@NotNull(groups = Work.Update.class)
 	private Integer workId;
 
 	@TableField(value = "work_title")
@@ -51,12 +52,15 @@ public class Work
 	private Integer workStatus;
 
 	@TableField(value = "work_price")
+	@NotNull
 	private Integer workPrice;
 
 	@TableField(value = "user_id")
+	@NotNull
 	private Integer userId;
 
 	@TableField(value = "user_name")
+	@NotEmpty
 	private String username;
 
 	@TableField(value = "user_role")
@@ -78,4 +82,12 @@ public class Work
 		this.username = username;
 		this.userRole = userRole;
 	}
+
+	public interface Add extends Default{
+
+	}
+	public interface Update extends Default{
+
+	}
+
 }

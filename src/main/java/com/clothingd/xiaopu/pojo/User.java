@@ -19,7 +19,7 @@ public class User
     private Integer userRole;
 
     @TableField(value = "user_name")
-    private String username;
+    private String userName;
 
     @TableField(value = "user_avatar")
     private String userAvatar;
@@ -27,12 +27,12 @@ public class User
     @TableField(value = "user_introduction")
     private String userIntroduction;
 
-    public User(Integer userId,Integer userRole,String username,String userAvatar,
+    public User(Integer userId,Integer userRole,String userName,String userAvatar,
           String userIntroduction)
     {
         this.userId = userId;
         this.userRole = userRole;
-        this.username = username;
+        this.userName = userName;
         this.userAvatar = userAvatar;
         this.userIntroduction = userIntroduction;
     }

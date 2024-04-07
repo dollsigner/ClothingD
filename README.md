@@ -588,17 +588,19 @@ eg：
 
 ##### （3） 响应数据
 
-| 名称              | 类型      | 是否必须 | 默认值 | 备注       |
-|-----------------|---------|------| ------ |----------|
-| code            | int     | yes  |        | 0成功；1失败  |
-| msg             | string  | no   |        | 提示消息     |
-| data            | array   | yes  |        | 信息列表     |
-| fromUserId      | int     | yes  |        | 发送信息的人Id |
-| fromUserName    | varchar | yes  |        | 发送信息的人名  |
-| toUserId        | int     | yes  |        | 信息到达人Id  |
-| toUserName      | varchar | yes  |        | 信息到达人名   |
-| messageNowText  | varchar | yes  |          | 当前收到的信息  |
-
+| 名称             | 类型      | 是否必须 | 默认值 | 备注           |
+|----------------|---------|------| ------ |--------------|
+| code           | int     | yes  |        | 0成功；1失败      |
+| msg            | string  | no   |        | 提示消息         |
+| data           | array   | yes  |        | 信息列表         |
+| messageId      | varchar | yes  |          | 信息唯一标识       |
+| fromUserId     | int     | yes  |        | 发送信息的人Id     |
+| fromUserName   | varchar | yes  |        | 发送信息的人名      |
+| toUserId       | int     | yes  |        | 信息到达人Id      |
+| toUserName     | varchar | yes  |        | 信息到达人名       |
+| messageOldText | varchar | yes  |          | 被回复的消息，没有可为空 |
+| messageNowText | varchar | yes  |          | 当前收到的信息      |
+PS：需要workId和workTitle
 
 
 #### 2.2.4 回复
@@ -610,10 +612,15 @@ eg：
 
 ##### （2） 请求参数
 
-| 参数名称           | 说明      | 类型      | 是否必须 | 备注 |
-|----------------|---------|---------|------| ---- |
-| userId         | 用户唯一标识  | int     | yes  |      |
-| messageOldText | 回复的消息内容 | varchar | yes  |      |
+| 参数名称           | 说明       | 类型      | 是否必须 | 备注 |
+|----------------|----------|---------|------| ---- |
+| userId         | 用户唯一标识   | int     | yes  |      |
+| messageOldText | 被回复的消息内容 | varchar | yes  |      |
+| messageNewText | 回复的消息内容  | varchar | yes  |      |
+| fromUserId     | int     | yes  |        | 发送信息的人Id     |
+| fromUserName   | varchar | yes  |        | 发送信息的人名      |
+| toUserId       | int     | yes  |        | 信息到达人Id      |
+| toUserName     | varchar | yes  |        | 信息到达人名       |
 
 
 
@@ -633,10 +640,10 @@ eg：
 
 ##### （2） 请求参数
 
-| 参数名称   | 说明     | 类型  | 是否必须 | 备注 |
-|--------|--------|-----|------| ---- |
-| userId | 用户唯一标识 | int | yes  |      |
-|        |        |     |      |      |
+| 参数名称     | 说明     | 类型  | 是否必须 | 备注 |
+|----------|--------|-----|------| ---- |
+| userId   | 用户唯一标识 | int | yes  |      |
+| barginId | 议价唯一标识 | int | yes  |      |
 
 
 
@@ -779,6 +786,8 @@ eg：
 - 请求路径：/community/Work/like
 - 请求方式：Post
 
+PS：work表work_likes加1，likes表增加一条数据
+
 ##### （2） 请求参数
 
 | 参数名称   | 说明     | 类型  | 是否必须 | 备注 |
@@ -803,11 +812,14 @@ eg：
 
 ##### （2） 请求参数
 
-| 参数名称   | 说明     | 类型  | 是否必须 | 备注 |
-|--------|--------|-----|------| ---- |
-| userId | 用户唯一标识 | int | yes  |      |
-| workId | 作品唯一标识 | int | yes  |      |
-|  reportReason|举报理由|varchar|yes|      |
+| 参数名称         | 说明         | 类型      | 是否必须 | 备注 |
+|--------------|------------|---------|------| ---- |
+| fromUserId   | 举报来源用户唯一标识 | int     | yes  |      |
+| fromUserName | 举报来源用户名字   | string  | yes  |      |
+| workId       | 受举报作品唯一标识  | int     | yes  |      |
+| workTitle    | 受举报作品名字    | string  | yes  |      |
+| reportReason | 举报理由       | varchar |yes|      |
+
 
 
 
@@ -825,11 +837,15 @@ eg：
 
 ##### （2） 请求参数
 
-| 参数名称        | 说明     | 类型  | 是否必须 | 备注 |
-|-------------|--------|-----|------| ---- |
-| userId      | 用户唯一标识 | int | yes  |      |
-| workId      | 作品唯一标识 | int | yes  |      |
-| barginPrice | 议价价格   | int |yes|      |
+| 参数名称         | 说明         | 类型     | 是否必须 | 备注 |
+|--------------|------------|--------|------| ---- |
+| fromUserId   | 议价来源用户唯一标识 | int    | yes  |      |
+| fromUserName | 议价来源用户名字   | string | yes  |      |
+| toUserId     | 议价去向用户唯一标识 | int    | yes  |      |
+| toUserName   | 议价去向用户名字   | string | yes  |      |
+| workId       | 作品唯一标识     | int    | yes  |      |
+| workTitle    | 作品标题       | string | no   |      |
+| barginPrice  | 议价价格       | int    | yes  |      |
 
 
 
@@ -839,15 +855,7 @@ eg：
 |-------------------| ---- | -------- | ------ | ---- |
 | code              | int    | yes  |        | 0成功；1失败      |
 | msg               | string | no   |        | 提示消息         |
-| barginPrice        | int    | yes   |        | 议价价格                |
-| barginStatus       | int    | yes   |        | 议价状态，0未响应，1已接受，2已拒绝 |
-| ｜-workId           | int    | yes   |        | 作品id                |
-| ｜-workTitle        | string | yes   |        | 作品标题                |
-| ｜-workIntroduction | string | yes   |        | 作品标题                |
-| ｜-fromUserId       | int   | yes   |        | 议价发起人id             |
-| ｜-fromUserName     | varchar| yes   |        | 议价人名字               | 
-| ｜-toUserId         | int   | yes   |        | 作品人id               |
-| ｜-toUserName       | varchar| yes   |        | 作品人名字               | 
+
 #### 2.3.7 私聊
 ##### （1） 基本信息
 
@@ -856,11 +864,15 @@ eg：
 
 ##### （2） 请求参数
 
-| 参数名称           | 说明     | 类型      | 是否必须 | 备注 |
-|----------------|--------|---------|------| ---- |
-| userId         | 用户唯一标识 | int     | yes  |      |
-| workId         | 作品唯一标识 | int     | yes  |      |
-| messageNowText | 留言内容   | varchar |yes|      |
+| 参数名称           | 说明         | 类型      | 是否必须 | 备注 |
+|----------------|------------|---------|------| ---- |
+| fromUserId     | 消息来源用户唯一标识 | int     | yes  |      |
+| fromUserName   | 消息来源用户名字   | string  | yes  |      |
+| toUserId       | 消息去向用户唯一标识 | int     | yes  |      |
+| toUserName     | 消息去向用户名字   | string  | yes  |      |
+| workId         | 作品唯一标识     | int     | yes  |      |
+| workTitle      | 作品标题       | string  | yes  |      |
+| messageNowText | 留言内容       | varchar |yes|      |
 
 
 
@@ -870,12 +882,5 @@ eg：
 |--------------------| ---- | -------- | ------ |---------------------|
 | code               | int    | yes  |        | 0成功；1失败             |
 | msg                | string | no   |        | 提示消息                |
-| messageId          | int    | yes   |        | 留言信息id              |
-| ｜-workId           | int    | yes   |        | 作品id                |
-| ｜-workTitle        | string | yes   |        | 作品标题                |
-| ｜-workIntroduction | string | yes   |        | 作品标题                |
-| ｜-fromUserId       | int   | yes   |        | 议价发起人id             |
-| ｜-fromUserName     | varchar| yes   |        | 议价人名字               | 
-| ｜-toUserId         | int   | yes   |        | 作品人id               |
-| ｜-toUserName       | varchar| yes   |        | 作品人名字               | 
+
 

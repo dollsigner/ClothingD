@@ -193,7 +193,7 @@ eg：
 |--------------|--------|------| ------ |------------|
 | code         | int    | yes  |        | 0成功；1失败    |
 | msg          | string | no   |        | 提示消息       |
-| data         | object | yes  |        | 数据对象       
+| data         | object | yes  |        | 数据对象       |
 | ｜-sessionkey | string | yes  |        | 登陆凭证       |
 | ｜-userId     | int    | yes  |        | 该登陆用户的用户id |｜
 
@@ -223,7 +223,7 @@ eg：
 |--------------------|--------|------| ------ |--------------|
 | code               | int    | yes  |        | 0成功；1失败      |
 | msg                | string | no   |        | 提示消息         |
-| data               | object | yes  |        | 数据对象       ｜ 
+| data               | object | yes  |        | 数据对象       | 
 | ｜-userRole         | int    | yes  |        | 用户角色         |
 | ｜-userIntroduction | string | yes  |        | 用户简介         |
 | ｜-userAvatar       | string | yes  |        | 用户头像         |
@@ -280,7 +280,7 @@ eg：
 |----------------|--------| -------- | ------ |----------------|
 | code           | int    | yes  |        | 0成功；1失败        |
 | msg            | string | no   |        | 提示消息           |
-| data           | array  | yes  |        | 排行数据列表       ｜ 
+| data           | array  | yes  |        | 排行数据列表       | 
 | ｜-rankRecordId | int    | yes  |        | 记录id           |
 | ｜-userId       | int    | yes  |        | 用户简介           |
 | ｜-userRole     | int    | yes  |        | 用户角色           |
@@ -311,7 +311,7 @@ eg：
 |----------------|--------| -------- | ------ |---------------|
 | code           | int    | yes  |        | 0成功；1失败       |
 | msg            | string | no   |        | 提示消息          |
-| data           | array  | yes  |        | 举报记录列表       ｜ 
+| data           | array  | yes  |        | 举报记录列表       | 
 | ｜-reportId     | int    | yes  |        | 记录id          |
 | ｜-reportReason | string | yes  |        | 举报原因          |
 | ｜-reportStatus | int    | yes  |        | 处理状态          |
@@ -344,7 +344,7 @@ eg：
 |--------------------|--------|------| ------ |-------------------|
 | code               | int    | yes  |        | 0成功；1失败           |
 | msg                | string | no   |        | 提示消息              |
-| data               | array  | yes  |        | 用户发布的作品列表       ｜ 
+| data               | array  | yes  |        | 用户发布的作品列表       | 
 | ｜-workId           | int    | yes  |        | 作品id              |
 | ｜-workTitle        | string | yes  |        | 作品标题              |
 | ｜-workIntroduction | string | yes  |        | 作品简介              |
@@ -363,13 +363,13 @@ eg：
 ##### （1） 基本信息
 
 - 请求路径：/like/getLikeList
-- 请求方式：
+- 请求方式：Post
 
 ##### （2） 请求参数
 
 | 参数名称 | 说明 | 类型 | 是否必须 | 备注 |
 | -------- | ---- | ---- | -------- | ---- |
-|          |      |      |          |      |
+| userId | 用户唯一标识 | int | yes  |      |
 |          |      |      |          |      |
 
 
@@ -378,8 +378,19 @@ eg：
 
 | 名称 | 类型 | 是否必须 | 默认值 | 备注 |
 | ---- | ---- | -------- | ------ | ---- |
-|      |      |          |        |      |
-|      |      |          |        |      |
+| code               | int    | yes  |        | 0成功；1失败           |
+| msg                | string | no   |        | 提示消息              |
+| data               | array  | yes  |        | 用户点赞列表       | 
+| ｜-workId           | int    | yes  |        | 作品id              |
+| ｜-workTitle        | string | yes  |        | 作品标题              |
+| ｜-workIntroduction | string | yes  |        | 作品简介              |
+| ｜-workCatagory     | int    | yes  |        | 作品分类              |
+| ｜-workImg          | string | yes  |        | 作品封面              |
+| ｜-workLikes        | int    | yes  |        | 作品受赞数             |
+| ｜-workPrice        | num    | yes  |        | 作品标的金额            |
+| ｜-userId           | int    | yes  |        | 作者id              |
+| ｜-userName         | num    | yes  |        | 作者名字              |
+| ｜-userRole         | int    | yes  |        | 作者角色              |
 
 #### 2.1.8 获取普通用户已购买作品
 
@@ -388,13 +399,13 @@ eg：
 ##### （1） 基本信息
 
 - 请求路径：/bargin/getBoughtList
-- 请求方式：
+- 请求方式：Post
 
 ##### （2） 请求参数
 
 | 参数名称 | 说明 | 类型 | 是否必须 | 备注 |
 | -------- | ---- | ---- | -------- | ---- |
-|          |      |      |          |      |
+| userId | 用户唯一标识 | int | yes  |      |
 |          |      |      |          |      |
 
 
@@ -403,8 +414,19 @@ eg：
 
 | 名称 | 类型 | 是否必须 | 默认值 | 备注 |
 | ---- | ---- | -------- | ------ | ---- |
-|      |      |          |        |      |
-|      |      |          |        |      |
+| code               | int    | yes  |        | 0成功；1失败           |
+| msg                | string | no   |        | 提示消息              |
+| data               | array  | yes  |        | 用户已购买列表       | 
+| ｜-workId           | int    | yes  |        | 作品id              |
+| ｜-workTitle        | string | yes  |        | 作品标题              |
+| ｜-workIntroduction | string | yes  |        | 作品简介              |
+| ｜-workCatagory     | int    | yes  |        | 作品分类              |
+| ｜-workImg          | string | yes  |        | 作品封面              |
+| ｜-workLikes        | int    | yes  |        | 作品受赞数             |
+| ｜-workPrice        | num    | yes  |        | 作品标的金额            |
+| ｜-userId           | int    | yes  |        | 作者id              |
+| ｜-userName         | num    | yes  |        | 作者名字              |
+| ｜-userRole         | int    | yes  |        | 作者角色              |
 
 #### 2.1.9 获取设计师用户待售商品
 
@@ -413,13 +435,13 @@ eg：
 ##### （1） 基本信息
 
 - 请求路径：/work/getToSellList
-- 请求方式：
+- 请求方式：Post
 
 ##### （2） 请求参数
 
 | 参数名称 | 说明 | 类型 | 是否必须 | 备注 |
 | -------- | ---- | ---- | -------- | ---- |
-|          |      |      |          |      |
+| userId | 用户唯一标识 | int | yes  |      |
 |          |      |      |          |      |
 
 
@@ -428,8 +450,19 @@ eg：
 
 | 名称 | 类型 | 是否必须 | 默认值 | 备注 |
 | ---- | ---- | -------- | ------ | ---- |
-|      |      |          |        |      |
-|      |      |          |        |      |
+| code               | int    | yes  |        | 0成功；1失败           |
+| msg                | string | no   |        | 提示消息              |
+| data               | array  | yes  |        | 设计师用户待售产品列表       | 
+| ｜-workId           | int    | yes  |        | 作品id              |
+| ｜-workTitle        | string | yes  |        | 作品标题              |
+| ｜-workIntroduction | string | yes  |        | 作品简介              |
+| ｜-workCatagory     | int    | yes  |        | 作品分类              |
+| ｜-workImg          | string | yes  |        | 作品封面              |
+| ｜-workLikes        | int    | yes  |        | 作品受赞数             |
+| ｜-workPrice        | num    | yes  |        | 作品标的金额            |
+| ｜-userId           | int    | yes  |        | 作者id              |
+| ｜-userName         | num    | yes  |        | 作者名字              |
+| ｜-userRole         | int    | yes  |        | 作者角色              |
 
 #### 2.1.10 获取设计师用户已售商品
 
@@ -444,7 +477,7 @@ eg：
 
 | 参数名称 | 说明 | 类型 | 是否必须 | 备注 |
 | -------- | ---- | ---- | -------- | ---- |
-|          |      |      |          |      |
+| userId | 用户唯一标识 | int | yes  |      |
 |          |      |      |          |      |
 
 
@@ -453,8 +486,19 @@ eg：
 
 | 名称 | 类型 | 是否必须 | 默认值 | 备注 |
 | ---- | ---- | -------- | ------ | ---- |
-|      |      |          |        |      |
-|      |      |          |        |      |
+| code               | int    | yes  |        | 0成功；1失败           |
+| msg                | string | no   |        | 提示消息              |
+| data               | array  | yes  |        | 设计师用户已售产品列表       | 
+| ｜-workId           | int    | yes  |        | 作品id              |
+| ｜-workTitle        | string | yes  |        | 作品标题              |
+| ｜-workIntroduction | string | yes  |        | 作品简介              |
+| ｜-workCatagory     | int    | yes  |        | 作品分类              |
+| ｜-workImg          | string | yes  |        | 作品封面              |
+| ｜-workLikes        | int    | yes  |        | 作品受赞数             |
+| ｜-workPrice        | num    | yes  |        | 作品标的金额            |
+| ｜-userId           | int    | yes  |        | 作者id              |
+| ｜-userName         | num    | yes  |        | 作者名字              |
+| ｜-userRole         | int    | yes  |        | 作者角色              |
 
 ### 2.2 消息相关接口
 
@@ -464,24 +508,30 @@ eg：
 
 ##### （1） 基本信息
 
-- 请求路径：
-- 请求方式：
+- 请求路径：/message/likes
+- 请求方式：Post
 
 ##### （2） 请求参数
 
 | 参数名称 | 说明 | 类型 | 是否必须 | 备注 |
 | -------- | ---- | ---- | -------- | ---- |
-|          |      |      |          |      |
+| userId | 用户唯一标识 | int | yes  |      |
 |          |      |      |          |      |
 
 
 
 ##### （3） 响应数据
 
-| 名称 | 类型 | 是否必须 | 默认值 | 备注 |
-| ---- | ---- | -------- | ------ | ---- |
-|      |      |          |        |      |
-|      |      |          |        |      |
+| 名称             | 类型 | 是否必须 | 默认值 | 备注                        |
+|----------------| ---- | -------- | ------ |---------------------------|
+| code           | int    | yes  |        | 0成功；1失败                   |
+| msg            | string | no   |        | 提示消息                      |
+| data           | array  | yes  |        | 发布作品的点赞信息列表       |       
+| ｜-workId       | int    | yes  |        | 作品id                      |
+| ｜-workTitle    | string | yes  |        | 作品标题                      |
+| ｜-fromUserId   | int   | yes   |        | 点赞人id                     |
+| ｜-fromUserName | varchar| yes  |        | 点赞人名字                     |
+
 
 #### 2.2.2 获取议价列表
 
@@ -489,24 +539,34 @@ eg：
 
 ##### （1） 基本信息
 
-- 请求路径：
-- 请求方式：
+- 请求路径：/message/bargin
+- 请求方式：Post
 
 ##### （2） 请求参数
 
 | 参数名称 | 说明 | 类型 | 是否必须 | 备注 |
 | -------- | ---- | ---- | -------- | ---- |
-|          |      |      |          |      |
+| userId | 用户唯一标识 | int | yes  |      |
 |          |      |      |          |      |
 
 
 
 ##### （3） 响应数据
 
-| 名称 | 类型 | 是否必须 | 默认值 | 备注 |
-| ---- | ---- | -------- | ------ | ---- |
-|      |      |          |        |      |
-|      |      |          |        |      |
+| 名称                 | 类型 | 是否必须  | 默认值 | 备注                  |
+|--------------------| ---- |-------| ------ |---------------------|
+| code               | int    | yes   |        | 0成功；1失败             |
+| msg                | string | no    |        | 提示消息                |
+| data               | array  | yes   |        | 议价信息列表              |
+| barginPrice        | int    | yes   |        | 议价价格                |
+| barginStatus       | int    | yes   |        | 议价状态，0未响应，1已接受，2已拒绝 |
+| ｜-workId           | int    | yes   |        | 作品id                |
+| ｜-workTitle        | string | yes   |        | 作品标题                |
+| ｜-workIntroduction | string | yes   |        | 作品标题                |
+| ｜-fromUserId       | int   | yes   |        | 议价发起人id             |
+| ｜-fromUserName     | varchar| yes   |        | 议价人名字               | 
+| ｜-toUserId         | int   | yes   |        | 作品人id               |
+| ｜-toUserName       | varchar| yes   |        | 作品人名字               | 
 
 #### 2.2.3 获取留言列表
 
@@ -514,38 +574,46 @@ eg：
 
 ##### （1） 基本信息
 
-- 请求路径：
-- 请求方式：
+- 请求路径：/message/list
+- 请求方式：Post
 
 ##### （2） 请求参数
 
-| 参数名称 | 说明 | 类型 | 是否必须 | 备注 |
-| -------- | ---- | ---- | -------- | ---- |
-|          |      |      |          |      |
-|          |      |      |          |      |
+| 参数名称   | 说明 | 类型 | 是否必须 | 备注 |
+|--------| ---- | ---- | -------- | ---- |
+| userId | 用户唯一标识 | int | yes  |      |
+|        |      |      |          |      |
 
 
 
 ##### （3） 响应数据
 
-| 名称 | 类型 | 是否必须 | 默认值 | 备注 |
-| ---- | ---- | -------- | ------ | ---- |
-|      |      |          |        |      |
-|      |      |          |        |      |
+| 名称              | 类型      | 是否必须 | 默认值 | 备注       |
+|-----------------|---------|------| ------ |----------|
+| code            | int     | yes  |        | 0成功；1失败  |
+| msg             | string  | no   |        | 提示消息     |
+| data            | array   | yes  |        | 信息列表     |
+| fromUserId      | int     | yes  |        | 发送信息的人Id |
+| fromUserName    | varchar | yes  |        | 发送信息的人名  |
+| toUserId        | int     | yes  |        | 信息到达人Id  |
+| toUserName      | varchar | yes  |        | 信息到达人名   |
+| messageNowText  | varchar | yes  |          | 当前收到的信息  |
+
+
 
 #### 2.2.4 回复
 
 ##### （1） 基本信息
 
-- 请求路径：
-- 请求方式：
+- 请求路径：/message/reply
+- 请求方式：Post
 
 ##### （2） 请求参数
 
-| 参数名称 | 说明 | 类型 | 是否必须 | 备注 |
-| -------- | ---- | ---- | -------- | ---- |
-|          |      |      |          |      |
-|          |      |      |          |      |
+| 参数名称           | 说明      | 类型      | 是否必须 | 备注 |
+|----------------|---------|---------|------| ---- |
+| userId         | 用户唯一标识  | int     | yes  |      |
+| messageOldText | 回复的消息内容 | varchar | yes  |      |
 
 
 
@@ -553,22 +621,22 @@ eg：
 
 | 名称 | 类型 | 是否必须 | 默认值 | 备注 |
 | ---- | ---- | -------- | ------ | ---- |
-|      |      |          |        |      |
-|      |      |          |        |      |
+| code               | int    | yes  |        | 0成功；1失败      |
+| msg                | string | no   |        | 提示消息         |
 
 #### 2.2.5 接受/拒绝议价
 
 ##### （1） 基本信息
 
-- 请求路径：
+- 请求路径：/message/bargin/recieve  Or    /message/bargin/reject
 - 请求方式：
 
 ##### （2） 请求参数
 
-| 参数名称 | 说明 | 类型 | 是否必须 | 备注 |
-| -------- | ---- | ---- | -------- | ---- |
-|          |      |      |          |      |
-|          |      |      |          |      |
+| 参数名称   | 说明     | 类型  | 是否必须 | 备注 |
+|--------|--------|-----|------| ---- |
+| userId | 用户唯一标识 | int | yes  |      |
+|        |        |     |      |      |
 
 
 
@@ -576,22 +644,22 @@ eg：
 
 | 名称 | 类型 | 是否必须 | 默认值 | 备注 |
 | ---- | ---- | -------- | ------ | ---- |
-|      |      |          |        |      |
-|      |      |          |        |      |
+| code               | int    | yes  |        | 0成功；1失败      |
+| msg                | string | no   |        | 提示消息         |
 
 #### 2.2.6 支付
 
 ##### （1） 基本信息
 
-- 请求路径：
+- 请求路径：/message/bargin/pay
 - 请求方式：
 
 ##### （2） 请求参数
 
-| 参数名称 | 说明 | 类型 | 是否必须 | 备注 |
-| -------- | ---- | ---- | -------- | ---- |
-|          |      |      |          |      |
-|          |      |      |          |      |
+| 参数名称        | 说明     | 类型  | 是否必须 | 备注 |
+|-------------|--------|-----|------| ---- |
+| userId      | 用户唯一标识 | int | yes  |      |
+| barginPrice | 成交价格   | int | yes  |      |
 
 
 
@@ -599,24 +667,215 @@ eg：
 
 | 名称 | 类型 | 是否必须 | 默认值 | 备注 |
 | ---- | ---- | -------- | ------ | ---- |
-|      |      |          |        |      |
-|      |      |          |        |      |
+| code               | int    | yes  |        | 0成功；1失败      |
+| msg                | string | no   |        | 提示消息         |
 
 
 
 ### 2.3 社区相关接口
 
 #### 2.3.1 获取所有作品列表
+##### （1） 基本信息
+
+- 请求路径：/community/getAllWorks
+- 请求方式：Post
+
+##### （2） 请求参数
+
+| 参数名称   | 说明     | 类型  | 是否必须 | 备注 |
+|--------|--------|-----|------| ---- |
+| userId | 用户唯一标识 | int | yes  |      |
+|        |        |     |      |      |
+
+
+
+##### （3） 响应数据
+
+| 名称                | 类型 | 是否必须 | 默认值 | 备注 |
+|-------------------| ---- | -------- | ------ | ---- |
+| code              | int    | yes  |        | 0成功；1失败      |
+| msg               | string | no   |        | 提示消息         |
+| data              | array  | yes  |        | 产品列表       | 
+| ｜-workId          | int    | yes  |        | 作品id              |
+| ｜-workTitle       | string | yes  |        | 作品标题              |
+| ｜-workIntroduction | string | yes  |        | 作品简介              |
+| ｜-workCatagory    | int    | yes  |        | 作品分类              |
+| ｜-workImg         | string | yes  |        | 作品封面              |
+| ｜-workLikes       | int    | yes  |        | 作品受赞数             |
+| ｜-workStatus      | int    | yes  |        | 作品状态              |
+| ｜-workPrice       | num    | yes  |        | 作品标的金额            |
+| ｜-userId          | int    | yes  |        | 作者id              |
+| ｜-userName        | num    | yes  |        | 作者名字              |
+| ｜-userRole        | int    | yes  |        | 作者角色              |
 
 #### 2.3.2 根据作品id获取作品详细数据
+##### （1） 基本信息
+
+- 请求路径：/community/Work
+- 请求方式：Post
+
+##### （2） 请求参数
+
+| 参数名称   | 说明     | 类型  | 是否必须 | 备注 |
+|--------|--------|-----|------| ---- |
+| userId | 用户唯一标识 | int | yes  |      |
+| workId | 作品唯一标识 | int | yes  |      |
+
+
+
+##### （3） 响应数据
+
+| 名称                | 类型 | 是否必须 | 默认值 | 备注 |
+|-------------------| ---- | -------- | ------ | ---- |
+| code              | int    | yes  |        | 0成功；1失败      |
+| msg               | string | no   |        | 提示消息         |
+| ｜-workId          | int    | yes  |        | 作品id              |
+| ｜-workTitle       | string | yes  |        | 作品标题              |
+| ｜-workIntroduction | string | yes  |        | 作品简介              |
+| ｜-workCatagory    | int    | yes  |        | 作品分类              |
+| ｜-workImg         | string | yes  |        | 作品封面              |
+| ｜-workLikes       | int    | yes  |        | 作品受赞数             |
+| ｜-workStatus      | int    | yes  |        | 作品状态              |
+| ｜-workPrice       | num    | yes  |        | 作品标的金额            |
+| ｜-userId          | int    | yes  |        | 作者id              |
+| ｜-userName        | num    | yes  |        | 作者名字              |
+| ｜-userRole        | int    | yes  |        | 作者角色              |
 
 #### 2.3.3 发布新作品
+##### （1） 基本信息
+
+- 请求路径：/community/upload
+- 请求方式：Post
+
+##### （2） 请求参数
+
+| 参数名称   | 说明     | 类型  | 是否必须 | 备注 |
+|--------|--------|-----|------| ---- |
+| userId | 用户唯一标识 | int | yes  |      |
+| ｜-workId          | int    | yes  |        | 作品id              |
+| ｜-workTitle       | string | yes  |        | 作品标题              |
+| ｜-workIntroduction | string | yes  |        | 作品简介              |
+| ｜-workCatagory    | int    | yes  |        | 作品分类              |
+| ｜-workImg         | string | yes  |        | 作品封面              |
+| ｜-workLikes       | int    | yes  |        | 作品受赞数             |
+| ｜-workStatus      | int    | yes  |        | 作品状态              |
+| ｜-workPrice       | num    | yes  |        | 作品标的金额            |
+| ｜-userId          | int    | yes  |        | 作者id              |
+| ｜-userName        | num    | yes  |        | 作者名字              |
+| ｜-userRole        | int    | yes  |        | 作者角色              |
+
+
+
+##### （3） 响应数据
+
+| 名称                | 类型 | 是否必须 | 默认值 | 备注 |
+|-------------------| ---- | -------- | ------ | ---- |
+| code              | int    | yes  |        | 0成功；1失败      |
+| msg               | string | no   |        | 提示消息         |
 
 #### 2.3.4 点赞
+##### （1） 基本信息
+
+- 请求路径：/community/Work/like
+- 请求方式：Post
+
+##### （2） 请求参数
+
+| 参数名称   | 说明     | 类型  | 是否必须 | 备注 |
+|--------|--------|-----|------| ---- |
+| userId | 用户唯一标识 | int | yes  |      |
+| workId | 作品唯一标识 | int | yes  |      |
+
+
+
+##### （3） 响应数据
+
+| 名称                | 类型 | 是否必须 | 默认值 | 备注 |
+|-------------------| ---- | -------- | ------ | ---- |
+| code              | int    | yes  |        | 0成功；1失败      |
+| msg               | string | no   |        | 提示消息         |
 
 #### 2.3.5 举报
+##### （1） 基本信息
 
+- 请求路径：/community/work/report
+- 请求方式：Post
+
+##### （2） 请求参数
+
+| 参数名称   | 说明     | 类型  | 是否必须 | 备注 |
+|--------|--------|-----|------| ---- |
+| userId | 用户唯一标识 | int | yes  |      |
+| workId | 作品唯一标识 | int | yes  |      |
+|  reportReason|举报理由|varchar|yes|      |
+
+
+
+##### （3） 响应数据
+
+| 名称                | 类型 | 是否必须 | 默认值 | 备注 |
+|-------------------| ---- | -------- | ------ | ---- |
+| code              | int    | yes  |        | 0成功；1失败      |
+| msg               | string | no   |        | 提示消息         |
 #### 2.3.6 议价
+##### （1） 基本信息
 
+- 请求路径：/community/work/bargin
+- 请求方式：Post
+
+##### （2） 请求参数
+
+| 参数名称        | 说明     | 类型  | 是否必须 | 备注 |
+|-------------|--------|-----|------| ---- |
+| userId      | 用户唯一标识 | int | yes  |      |
+| workId      | 作品唯一标识 | int | yes  |      |
+| barginPrice | 议价价格   | int |yes|      |
+
+
+
+##### （3） 响应数据
+
+| 名称                | 类型 | 是否必须 | 默认值 | 备注 |
+|-------------------| ---- | -------- | ------ | ---- |
+| code              | int    | yes  |        | 0成功；1失败      |
+| msg               | string | no   |        | 提示消息         |
+| barginPrice        | int    | yes   |        | 议价价格                |
+| barginStatus       | int    | yes   |        | 议价状态，0未响应，1已接受，2已拒绝 |
+| ｜-workId           | int    | yes   |        | 作品id                |
+| ｜-workTitle        | string | yes   |        | 作品标题                |
+| ｜-workIntroduction | string | yes   |        | 作品标题                |
+| ｜-fromUserId       | int   | yes   |        | 议价发起人id             |
+| ｜-fromUserName     | varchar| yes   |        | 议价人名字               | 
+| ｜-toUserId         | int   | yes   |        | 作品人id               |
+| ｜-toUserName       | varchar| yes   |        | 作品人名字               | 
 #### 2.3.7 私聊
+##### （1） 基本信息
+
+- 请求路径：/community/work/message
+- 请求方式：Post
+
+##### （2） 请求参数
+
+| 参数名称           | 说明     | 类型      | 是否必须 | 备注 |
+|----------------|--------|---------|------| ---- |
+| userId         | 用户唯一标识 | int     | yes  |      |
+| workId         | 作品唯一标识 | int     | yes  |      |
+| messageNowText | 留言内容   | varchar |yes|      |
+
+
+
+##### （3） 响应数据
+
+| 名称                 | 类型 | 是否必须 | 默认值 | 备注                  |
+|--------------------| ---- | -------- | ------ |---------------------|
+| code               | int    | yes  |        | 0成功；1失败             |
+| msg                | string | no   |        | 提示消息                |
+| messageId          | int    | yes   |        | 留言信息id              |
+| ｜-workId           | int    | yes   |        | 作品id                |
+| ｜-workTitle        | string | yes   |        | 作品标题                |
+| ｜-workIntroduction | string | yes   |        | 作品标题                |
+| ｜-fromUserId       | int   | yes   |        | 议价发起人id             |
+| ｜-fromUserName     | varchar| yes   |        | 议价人名字               | 
+| ｜-toUserId         | int   | yes   |        | 作品人id               |
+| ｜-toUserName       | varchar| yes   |        | 作品人名字               | 
 

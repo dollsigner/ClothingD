@@ -14,13 +14,13 @@ import com.clothingd.xiaopu.service.WorkService;
 
 @RestController
 @Validated
-@RequestMapping("/work")
+
 public class WorkController
 {
 	@Autowired
 	private WorkService workService;
 
-	@PostMapping
+	@PostMapping("/community/upload")
 	public Result add(@RequestBody@Validated(Work.Add.class) Work work){
 		workService.add(work);
 		return Result.success();

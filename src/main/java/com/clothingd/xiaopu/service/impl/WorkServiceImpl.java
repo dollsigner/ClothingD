@@ -25,6 +25,7 @@ public class WorkServiceImpl implements WorkService
 		work.setUserId(userId);
 		work.setUsername(username);
 		work.setUserRole(userRole);
+		work.setWorkLikesNum(0L);
 		workDao.add(work);
 	}
 }

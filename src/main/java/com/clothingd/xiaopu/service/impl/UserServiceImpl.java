@@ -1,9 +1,11 @@
 package com.clothingd.xiaopu.service.impl;
 
+import java.util.List;
 import java.util.Map;
 
 import com.clothingd.xiaopu.Dao.UserDao;
 import com.clothingd.xiaopu.pojo.User;
+import com.clothingd.xiaopu.pojo.Work;
 import com.clothingd.xiaopu.service.UserService;
 import com.clothingd.xiaopu.utils.ThreadLocalUtil;
 

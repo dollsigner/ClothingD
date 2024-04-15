@@ -1,6 +1,7 @@
 package com.clothingd.xiaopu.service.impl;
 
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,4 +29,26 @@ public class WorkServiceImpl implements WorkService
 		work.setWorkLikesNum(0L);
 		workDao.add(work);
 	}
+
+	@Override
+	public List<Work> getAuthList(final Integer userId)
+	{
+		List<Work> authList = workDao.getAuthList(userId);
+		return authList;
+	}
+
+	@Override
+	public List<Work> getToSellList(final Integer userId)
+	{
+		List<Work> toSellList = workDao.getToSellList(userId);
+		return toSellList;
+	}
+
+	@Override
+	public List<Work> getSoldList(final Integer userId)
+	{
+		List<Work> soldList = workDao.getSoldList(userId);
+		return soldList;
+	}
+
 }

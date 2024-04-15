@@ -1,5 +1,8 @@
 package com.clothingd.xiaopu.controller;
 
+import java.util.List;
+import java.util.Map;
+
 import org.hibernate.validator.constraints.URL;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -10,7 +13,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.clothingd.xiaopu.pojo.Result;
 import com.clothingd.xiaopu.pojo.User;
+import com.clothingd.xiaopu.pojo.Work;
 import com.clothingd.xiaopu.service.UserService;
+import com.clothingd.xiaopu.utils.ThreadLocalUtil;
 
 
 @RestController
